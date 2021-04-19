@@ -119,7 +119,7 @@ def set_today():
     with Standups() as standups:
         # User reviews done items (normally previous day's)
         done = standups.get_done()
-        print(f"Yesterday's standup was:\n{done}")
+        print(f"The previous standup was:\n{done}")
         if questionary.confirm("Edit?", default=done == "").ask():
             done = editor.edit(contents=done).decode()
         standups.today["done"] = done
