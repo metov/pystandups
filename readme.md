@@ -9,7 +9,7 @@ Standups are stored as a JSON dictionary. The location is hardcoded (see `DATA_D
 
 ## Usage
 * `standup today` - prepare standup at the beginning of the day. PyStandups will try to intelligently fill in as much information as possible, and you will have the opportunity to edit it in your editor.
-* `standup later` - take quick notes for future standups. `standup today` automatically fills in the data from `standup later`. For more sophisticated management of planned tasks, you should use an external tool like Jira.
+* `standup later` - take quick notes for future standups. `standup today` automatically fills in the data from `standup later`. For more sophisticated management of planned tasks, use an external tool like Jira.
 * `standup get today` and `standup get last` - print the relevant standup to standard out. These are mainly intended for use in scripts.
 
 ### Old Standups
