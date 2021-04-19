@@ -3,6 +3,8 @@ name = "pystandups"
 version = "0.2"
 description = "A command line utility for working with daily standups."
 authors = ["Azat Akhmetov"]
+readme = "readme.md"
+homepage = "https://github.com/metov/pystandups"
 
 [tool.poetry.dependencies]
 python = "^3.6"
