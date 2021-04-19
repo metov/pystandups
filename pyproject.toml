@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pystandups"
 version = "0.1"
-description = "A command line utility to help work with daily standups."
+description = "A command line utility for working with daily standups."
 authors = ["Azat Akhmetov"]
 
 [tool.poetry.dependencies]
