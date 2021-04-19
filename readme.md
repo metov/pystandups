@@ -16,7 +16,7 @@ Standups are stored as a JSON dictionary. The location is hardcoded (see `DATA_D
 PyStandups does not support working with standups older than today or other complex tasks. You can use an external tool like `jq` to work with the JSON file directly.
 
 ## Install
-Run `pip install .` from inside the repo root.
+`pip install pystandups` to install latest release.
 
 The project is managed by [poetry](https://python-poetry.org/) so if you want to work on the code see [`poetry install`](https://python-poetry.org/docs/cli/#install).
 
