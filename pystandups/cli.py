@@ -7,7 +7,7 @@ Usage:
     standup (--help | -h)
     standup today
     standup later
-    standup get yesterday
+    standup get last
     standup get today
 """
 
@@ -27,7 +27,7 @@ def main():
 
         if args["today"]:
             print(st().today["todo"])
-        elif args["yesterday"]:
+        elif args["last"]:
             print(st().get_done())
     else:
         if args["today"]:
