@@ -1,5 +1,5 @@
 # PyStandups
-A command line utility to help work with daily standups. A "standup" is a brief description of what work will be done that day. PyStandups supports:
+A command line utility for working with daily standups. A "standup" is a brief description of what work will be done that day. PyStandups supports:
 
 * Storing standups for each day
 * Reviewing the previous day's standup (in case the actual work done ended up being different from what was planned)
