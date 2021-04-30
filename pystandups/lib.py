@@ -6,7 +6,7 @@ from typing import Dict
 
 import coloredlogs
 import dictdiffer
-import editor
+from openeditor import edit_temp
 import questionary
 from tabulate import tabulate
 
@@ -121,14 +121,14 @@ def set_today():
         done = standups.get_done()
         print(f"The previous standup was:\n{done}")
         if questionary.confirm("Edit?", default=done == "").ask():
-            done = editor.edit(contents=done).decode()
+            done = edit_temp(contents=done, name="later")
         standups.today["done"] = done
 
         # User reviews pending items
         todo = standups.get_todo()
         print(f"Today's standup is:\n{todo}")
         if questionary.confirm("Edit?", default=(todo == "")).ask():
-            todo = editor.edit(contents=todo).decode()
+            todo = edit_temp(contents=todo, name="todo")
         standups.today["todo"] = todo
 
         # If there was nothing for today then user would have seen later's items
@@ -142,4 +142,4 @@ def set_later():
         # User reviews notes for the next standup
         later = standups.later
         print(f"Notes for later:\n{later}")
-        standups.later = editor.edit(contents=later).decode()
+        standups.later = edit_temp(contents=later, name="later")
