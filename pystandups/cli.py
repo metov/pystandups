@@ -20,15 +20,14 @@ def main():
     args = docopt(__doc__)
 
     if args["get"]:
-
-        def st():
-            with Standups() as standups:
-                return standups
+        # Load standups, but without using
+        st = Standups()
+        st.__enter__()
 
         if args["today"]:
-            print(st().today["todo"])
+            print(st.today["todo"])
         elif args["last"]:
-            print(st().get_done())
+            print(st.get_done())
     else:
         if args["today"]:
             set_today()
