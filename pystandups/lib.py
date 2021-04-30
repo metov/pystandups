@@ -63,7 +63,7 @@ class Standups:
         return self.today["todo"]
 
     def load(self, path: Path):
-        try:
+        if path.exists():
             log.debug(f"Loading {path}")
             with path.open() as f:
                 j = json.load(f)
@@ -72,7 +72,7 @@ class Standups:
                 log.warning("Overwriting existing data with what is loaded from file.")
 
             self._data = j
-        except FileNotFoundError:
+        else:
             log.warning(f"{path} does not exist, loading nothing.")
 
     def save(self, path: Path):
