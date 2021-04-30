@@ -20,3 +20,4 @@ PyStandups does not support working with standups older than today or other comp
 
 The project is managed by [poetry](https://python-poetry.org/) so if you want to work on the code see [`poetry install`](https://python-poetry.org/docs/cli/#install).
 
+Make sure you have `$VISUAL` (preferred) or `$EDITOR` set. If relevant, the command should include the "wait" parameter so that PyStandups is blocked until you close the editor window. So for example, `subl -w` not `subl`.

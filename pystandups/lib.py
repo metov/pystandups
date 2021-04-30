@@ -63,7 +63,7 @@ class Standups:
         return self.today["todo"]
 
     def load(self, path: Path):
-        try:
+        if path.exists():
             log.debug(f"Loading {path}")
             with path.open() as f:
                 j = json.load(f)
@@ -72,7 +72,7 @@ class Standups:
                 log.warning("Overwriting existing data with what is loaded from file.")
 
             self._data = j
-        except FileNotFoundError:
+        else:
             log.warning(f"{path} does not exist, loading nothing.")
 
     def save(self, path: Path):
@@ -100,7 +100,7 @@ class Standups:
                 json.dump(self._data, f, indent=4)
 
     def __enter__(self):
-        self.load(DATA_DIR / STANDUPS_FILE)
+        self.load(self.standups_path())
 
         today = self.todaystr
         self.today = self.standups.setdefault(today, {"done": "", "todo": ""})
@@ -112,7 +112,11 @@ class Standups:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.save(DATA_DIR / STANDUPS_FILE)
+        self.save(self.standups_path())
+
+    @staticmethod
+    def standups_path():
+        return DATA_DIR / STANDUPS_FILE
 
 
 def set_today():
