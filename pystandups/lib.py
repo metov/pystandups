@@ -125,7 +125,7 @@ def set_today():
         done = standups.get_done()
         print(f"The previous standup was:\n{done}")
         if questionary.confirm("Edit?", default=done == "").ask():
-            done = edit_temp(contents=done, name="later")
+            done = edit_temp(contents=done, name="done")
         standups.today["done"] = done
 
         # User reviews pending items
