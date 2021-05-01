@@ -13,6 +13,9 @@ from tabulate import tabulate
 DATA_DIR = Path("~").expanduser() / ".local/share/pystandups"
 STANDUPS_FILE = "standups.json"
 
+# Encourage editors to use markdown highlight for temp files
+TEMP_EXTENSION = "md"
+
 # Set up logging
 log = logging.getLogger(__name__)
 LOGFMT = "%(programname)s:%(lineno)d %(message)s"
@@ -125,14 +128,14 @@ def set_today():
         done = standups.get_done()
         print(f"The previous standup was:\n{done}")
         if questionary.confirm("Edit?", default=done == "").ask():
-            done = edit_temp(contents=done, name="done")
+            done = edit_temp(contents=done, name=f"done.{TEMP_EXTENSION}")
         standups.today["done"] = done
 
         # User reviews pending items
         todo = standups.get_todo()
         print(f"Today's standup is:\n{todo}")
         if questionary.confirm("Edit?", default=(todo == "")).ask():
-            todo = edit_temp(contents=todo, name="todo")
+            todo = edit_temp(contents=todo, name=f"todo.{TEMP_EXTENSION}")
         standups.today["todo"] = todo
 
         # If there was nothing for today then user would have seen later's items
@@ -146,4 +149,4 @@ def set_later():
         # User reviews notes for the next standup
         later = standups.later
         print(f"Notes for later:\n{later}")
-        standups.later = edit_temp(contents=later, name="later")
+        standups.later = edit_temp(contents=later, name=f"later.{TEMP_EXTENSION}")
