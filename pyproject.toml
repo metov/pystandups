@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "pystandups"
-version = "0.4.3"
+version = "0.4.4"
 description = "A command line utility for working with daily standups."
 authors = ["Azat Akhmetov"]
 readme = "readme.md"
 repository = "https://github.com/metov/pystandups"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.6.1"
 coloredlogs = "*"
 dictdiffer = "*"
 docopt = "*"
