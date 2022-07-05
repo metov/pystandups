@@ -14,6 +14,7 @@ docopt = "*"
 openeditor = "^0.3.1"
 questionary = "*"
 tabulate = "*"
+xdg = "*"
 
 [tool.poetry.dev-dependencies]
 
