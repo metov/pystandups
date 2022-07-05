@@ -6,11 +6,12 @@ from typing import Dict
 
 import coloredlogs
 import dictdiffer
+import xdg
 from openeditor import edit_temp
 import questionary
 from tabulate import tabulate
 
-DATA_DIR = Path("~").expanduser() / ".local/share/pystandups"
+DATA_DIR = xdg.xdg_data_home() / "pystandups"
 STANDUPS_FILE = "standups.json"
 
 # Encourage editors to use markdown highlight for temp files
